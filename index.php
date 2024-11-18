@@ -1,3 +1,3 @@
 <?php
-header("Location: app/views/index.view.php");
+header("Location: app/controllers/index.php");
 exit();

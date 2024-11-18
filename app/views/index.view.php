@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once __DIR__ . '/inicio.part.php'; ?>
+<?php require_once __DIR__ . '/../utils/Utils.php'; ?>
 
 <body>
     <?php require_once __DIR__ . '/navegacion.part.php'; ?>
@@ -12,212 +13,47 @@
         </div>
         <div class="row gy-5 align-items-center">
             <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">Turn Emails into Revenue</h1>
-                <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">Win new customers with the #1 email marketing and automations brand* that recommends ways to get more opens, clicks, and sales.</p>
-                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">Get Started</a>
+                <h1 class="display-4 text-dark mb-4 wow fadeInUp" data-wow-delay="0.3s">El modo foto como nunca lo habías vivido</h1>
+                <p class="fs-4 mb-4 wow fadeInUp" data-wow-delay="0.5s">El espacio donde podrás compartir, comentar y valorar tus videojuegos favoritos. ¿A qué esperas para unirte?</p>
+                <a href="#topFive" class="btn btn-primary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.7s">¡Llévame al Top5!</a>
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
-                <img src="/public/img/hero-img-1.png" class="img-fluid w-100 h-100" alt="">
+                <img src="/public/img/index/<?= Utils::extraerUnElemento($imagenesIndice)[0] ?>" class="img-fluid w-50 h-50" alt="">
             </div>
         </div>
     </div>
     <!-- Hero Header End -->
-    </div>
-    <!-- Navbar & Hero End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid overflow-hidden py-5" style="margin-top: 6rem;">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="RotateMoveLeft">
-                        <img src="/public/img/about-1.png" class="img-fluid w-100" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h4 class="mb-1 text-primary">About Us</h4>
-                    <h1 class="display-5 mb-4">Get Started Easily With a Personalized Product Tour</h1>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
-                    </p>
-                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5">About More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Service Start -->
-    <div class="container-fluid service py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="mb-1 text-primary">Our Service</h4>
-                <h1 class="display-5 mb-4">What We Can Do For You</h1>
-                <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Email Newsletters</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-thumbs-up fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Acquistion Emails </h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fa fa-subway fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Retention Emails</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Promotional Emails</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Email Newsletters</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-thumbs-up fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Acquistion Emails </h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fa fa-subway fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Retention Emails</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="service-item text-center rounded p-4">
-                        <div class="service-icon d-inline-block bg-light rounded p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
-                        <div class="service-content">
-                            <h4 class="mb-4">Promotional Emails</h4>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                            <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-4">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
 
     <!-- Feature Start -->
-    <div class="container-fluid feature overflow-hidden py-5">
+    <div id="topFive" class="container-fluid feature overflow-hidden py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="text-primary">Our Feature</h4>
-                <h1 class="display-5 mb-4">Important Features For Email Marketing</h1>
-                <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p>
+                <h4 class="text-primary">Top 5 en la web</h4>
+                <h1 class="display-5 mb-4">Juegos más comentados ahora mismo</h1>
             </div>
+            <!-- Top 5 Videojuegos -->
             <div class="row g-4 justify-content-center text-center mb-5">
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="text-center p-4">
-                        <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-envelope fa-5x text-secondary"></i></div>
-                        <div class="feature-content">
-                            <a href="#" class="h4">Email Marketing <i class="fa fa-long-arrow-alt-right"></i></a>
-                            <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="text-center p-4">
-                        <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-mail-bulk fa-5x text-secondary"></i></div>
-                        <div class="feature-content">
-                            <a href="#" class="h4">Email Builder <i class="fa fa-long-arrow-alt-right"></i></a>
-                            <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="text-center rounded p-4">
-                        <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-sitemap fa-5x text-secondary"></i></div>
-                        <div class="feature-content">
-                            <a href="#" class="h4">Customer Builder <i class="fa fa-long-arrow-alt-right"></i></a>
-                            <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="text-center rounded p-4">
-                        <div class="d-inline-block rounded bg-light p-4 mb-4"><i class="fas fa-tasks fa-5x text-secondary"></i></div>
-                        <div class="feature-content">
-                            <a href="#" class="h4">Campaign Manager <i class="fa fa-long-arrow-alt-right"></i></a>
-                            <p class="mt-4 mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
+                <?php require_once __DIR__ . '/index-topfive.part.php' ?>
                 <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="my-3">
-                        <a href="#" class="btn btn-primary d-inline rounded-pill px-5 py-3">More Features</a>
+                        <a href="videojuegos" class="btn btn-primary d-inline rounded-pill px-5 py-3">Más juegos</a>
                     </div>
                 </div>
             </div>
+            <!-- End Top 5 Videojuegos -->
+
+            <!--Comunidad-->
             <div class="row g-5 pt-5" style="margin-top: 6rem;">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
                     <div class="feature-img RotateMoveLeft h-100" style="object-fit: cover;">
-                        <img src="/public/img/features-1.png" class="img-fluid w-100 h-100" alt="">
+                        <img src="/public/img/index/comunidad.png" class="img-fluid w-75 h-100" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
-                    <h4 class="text-primary">Fearutes</h4>
-                    <h1 class="display-5 mb-4">Push Your Visitors Into Happy Customers</h1>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, suscipit itaque quaerat dicta porro illum, autem, molestias ut animi ab aspernatur dolorum officia nam dolore. Voluptatibus aliquam earum labore atque.
+                    <h4 class="text-primary">Comunidad</h4>
+                    <h1 class="display-5 mb-4">Este album de fotos no se llena solo...</h1>
+                    <p class="mb-4">Crecemos gracias a todos los usuarios que, día tras día, comparten con nosotros los videojuegos que les apasionan.
                     </p>
                     <div class="row g-4">
                         <div class="col-6">
@@ -225,7 +61,7 @@
                                 <i class="fas fa-newspaper fa-4x text-secondary"></i>
                                 <div class="d-flex flex-column ms-3">
                                     <h2 class="mb-0 fw-bold">285</h2>
-                                    <small class="text-dark">Created Projects</small>
+                                    <small class="text-dark">videojuegos comentados</small>
                                 </div>
                             </div>
                         </div>
@@ -234,20 +70,20 @@
                                 <i class="fas fa-users fa-4x text-secondary"></i>
                                 <div class="d-flex flex-column ms-3">
                                     <h2 class="mb-0 fw-bold">6560</h2>
-                                    <small class="text-dark">Happy Clients</small>
+                                    <small class="text-dark">usuarios</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="my-4">
-                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Read More</a>
+                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Sobre nosotros</a>
+                        <!-- Lleva a about-->
                     </div>
                 </div>
             </div>
+            <!-- End Comunidad -->
         </div>
     </div>
-    <!-- Feature End -->
-
 
     <!-- FAQ Start -->
     <div class="container-fluid FAQ bg-light overflow-hidden py-5">
@@ -258,42 +94,41 @@
                         <div class="accordion-item border-0 mb-4">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseTOne">
-                                    Why did you choose Our Email Services?
+                                    ¿Qué tengo que hacer para empezar?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body my-2">
-                                    <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    <h5>Regístrate</h5>
+                                    <p>Para participar en CommentJuegos solo necesitas una cuenta de usuario y ganas de participar con el resto de la comunidad.</p>
+                                    <p>La aventura está a tu alcance.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item border-0 mb-4">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Are there any hidden charges?
+                                    ¿Puedo valorar reseñas de otros usuarios?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body my-2">
-                                    <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    <h5>Compartir es vivir</h5>
+                                    <p>El objetivo es participar entre todos, ¡claro que puedes!</p>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item border-0">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    What are the key challenges of email marketing?
+                                    ¿Puedo proponer nuevos videojuegos si echo alguno en falta?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body my-2">
-                                    <h5>Dolor sit amet consectetur adipisicing elit.</h5>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nemo impedit, sapiente quis illo quia nulla atque maxime fuga minima ipsa quae cum consequatur, sit, delectus exercitationem odit officiis maiores! Neque, quidem corrupti modi architecto eos saepe incidunt dignissimos rerum.</p>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta distinctio hic fuga odio excepturi ducimus sequi at. Doloribus, non aspernatur.</p>
+                                    <h5>Oops... 404 videogame not found</h5>
+                                    <p>¡Nadie es perfecto! Si se nos ha olvidado poner algún juego y te gustaría que formara parte de la web, solo tienes que contactar con nosotros y hacer la propuesta. </p>
+                                    <p>Cuando regreses a la página ya estará el juego deseado.</p>
                                 </div>
                             </div>
                         </div>
@@ -301,283 +136,13 @@
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
                     <div class="FAQ-img RotateMoveRight rounded">
-                        <img src="/public/img/about-1.png" class="img-fluid w-100" alt="">
+                        <img src="/public/img/index/faq.png" class="img-fluid w-75" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- FAQ End -->
-
-
-    <!-- Pricing Start -->
-    <div class="container-fluid price py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="text-primary">Pricing Plan</h4>
-                <h1 class="display-5 mb-4">Not Sure Which Plan Is For You?</h1>
-                <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p>
-            </div>
-            <div class="row g-5 justify-content-center">
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="price-item bg-light rounded text-center">
-                        <div class="text-center text-dark border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
-                            <p class="fs-2 fw-bold text-uppercase mb-0">BASIC</p>
-                            <div class="d-flex justify-content-center">
-                                <strong class="align-self-start">$</strong>
-                                <p class="mb-0"><span class="display-5">00</span>/mo</p>
-                            </div>
-                        </div>
-                        <div class="text-start p-5">
-                            <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
-                            <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
-                            <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
-                            <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
-                            <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="price-item bg-light rounded text-center">
-                        <div class="pice-item-offer">Popular</div>
-                        <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
-                            <p class="fs-2 fw-bold text-uppercase mb-0">Standard</p>
-                            <div class="d-flex justify-content-center">
-                                <strong class="align-self-start">$</strong>
-                                <p class="mb-0"><span class="display-5">23</span>/mo</p>
-                            </div>
-                        </div>
-                        <div class="text-start p-5">
-                            <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
-                            <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
-                            <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
-                            <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
-                            <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="price-item bg-light rounded text-center">
-                        <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 160px;">
-                            <p class="fs-2 fw-bold text-uppercase mb-0">Premium</p>
-                            <div class="d-flex justify-content-center">
-                                <strong class="align-self-start">$</strong>
-                                <p class="mb-0"><span class="display-5">49</span>/mo</p>
-                            </div>
-                        </div>
-                        <div class="text-start p-5">
-                            <p><i class="fas fa-check text-success me-1"></i> Limited Acess Library</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Customer Support</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Pre-built Email Templates</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Reporting & Analytics</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Forms & Landing Pages</p>
-                            <p><i class="fas fa-check text-success me-1"></i> A/B Testing</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Email Scheduling</p>
-                            <p><i class="fas fa-check text-success me-1"></i> Automated Customer Journeys</p>
-                            <p><i class="fas fa-times text-danger me-1"></i> Creative Assistant</p>
-                            <p class="mb-4"><i class="fas fa-times text-danger me-1"></i> Role-based Access</p>
-                            <button class="btn btn-light rounded-pill py-2 px-5" type="button">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Pricing End -->
-
-
-    <!-- Blog Start -->
-    <div class="container-fluid blog py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="text-primary">Our Blog</h4>
-                <h1 class="display-5 mb-4">Join Us For New Blog</h1>
-                <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="/public/img/blog-1.png" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content text-dark border p-4 ">
-                            <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="/public/img/blog-2.png" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content text-dark border p-4 ">
-                            <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="/public/img/blog-3.png" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content text-dark border p-4 ">
-                            <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="blog-item">
-                        <div class="blog-img">
-                            <img src="/public/img/blog-4.png" class="img-fluid w-100" alt="">
-                            <div class="blog-info">
-                                <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                                <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blog-content text-dark border p-4 ">
-                            <h5 class="mb-4">Dolor, sit amet consectetur adipisicing</h5>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip.</p>
-                            <a class="btn btn-light rounded-pill py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Blog End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-fluid testimonial py-5">
-        <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="text-primary">Testimonial</h4>
-                <h1 class="display-5 mb-4">What Our Client Say About Us</h1>
-                <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p>
-            </div>
-            <div class="testimonial-carousel owl-carousel wow zoomInDown" data-wow-delay="0.2s">
-                <div class="testimonial-item" data-dot="<img class='img-fluid' src='/public/img/testimonial-img-1.jpg' alt=''>">
-                    <div class="testimonial-inner text-center p-5">
-                        <div class="d-flex align-items-center justify-content-center mb-4">
-                            <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="/public/img/testimonial-img-1.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div>
-                                <h5 class="mb-2">John Abraham</h5>
-                                <p class="mb-0">New York, USA</p>
-                            </div>
-                        </div>
-                        <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item" data-dot="<img class='img-fluid' src='/public/img/testimonial-img-2.jpg' alt=''>">
-                    <div class="testimonial-inner text-center p-5">
-                        <div class="d-flex align-items-center justify-content-center mb-4">
-                            <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="/public/img/testimonial-img-2.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div>
-                                <h5 class="mb-2">John Abraham</h5>
-                                <p class="mb-0">New York, USA</p>
-                            </div>
-                        </div>
-                        <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item" data-dot="<img class='img-fluid' src='/public/img/testimonial-img-3.jpg' alt=''>">
-                    <div class="testimonial-inner text-center p-5">
-                        <div class="d-flex align-items-center justify-content-center mb-4">
-                            <div class="testimonial-inner-img border border-primary border-3 me-4" style="width: 100px; height: 100px; border-radius: 50%;">
-                                <img src="/public/img/testimonial-img-3.jpg" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div>
-                                <h5 class="mb-2">John Abraham</h5>
-                                <p class="mb-0">New York, USA</p>
-                            </div>
-                        </div>
-                        <p class="fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                        </p>
-                        <div class="text-center">
-                            <div class="d-flex justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Testimonial End -->
-
 
     <?php require_once __DIR__ . '/fin.part.php'; ?>
 </body>
