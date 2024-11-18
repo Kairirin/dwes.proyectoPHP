@@ -37,7 +37,7 @@
                  </div>
                  <div class="form-group">
                      <div class="col-xs-12">
-                         <label class="label-control">Nombre</label>
+                         <label class="label-control">Título</label>
                          <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?> ">
                              <!--Falta select de plataforma-->
                          <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
