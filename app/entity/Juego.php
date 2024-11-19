@@ -1,6 +1,7 @@
 <?php
+require_once __DIR__ . '/IEntity.php';
 
-class Juego
+class Juego implements IEntity
 {
     private $codigo;
     private $nombre;

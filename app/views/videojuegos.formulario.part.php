@@ -39,7 +39,16 @@
                      <div class="col-xs-12">
                          <label class="label-control">Título</label>
                          <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?> ">
-                             <!--Falta select de plataforma-->
+                         <div class="form-group">
+                             <label class="label-control">Plataforma</label>
+                             <div class="col-xs-12">
+                                 <select class="form-control" name="plataforma">
+                                     <?php foreach ($plataformas as $plat) : ?>
+                                         <option value="<?= $plat->getCod() ?>"><?= $plat->getNombre() ?></option>
+                                     <?php endforeach; ?>
+                                 </select>
+                             </div>
+                         </div>
                          <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
                      </div>
                  </div>

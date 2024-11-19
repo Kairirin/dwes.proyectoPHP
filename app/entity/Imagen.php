@@ -1,5 +1,7 @@
 <?php
-class Imagen 
+require_once __DIR__ . '/IEntity.php';
+
+class Imagen implements IEntity
 {
     private $id;
     private $nombre;

@@ -34,7 +34,6 @@
     </div>
     <!-- Header End -->
 
-
     <!-- Pricing Start -->
     <div class="container-fluid price py-5">
         <div class="container py-5">
@@ -44,7 +43,7 @@
             </div>
             <div class="row g-5 justify-content-center">
 
-                <?php foreach ($videojuegos as $juego) : ?>
+                <?php foreach ($videojuegos as $juego) : ?> <!--He hecho una función filter en el QueryBuilder, usarla más adelante con el query/blabla cuando redireccione a una consola en concreto para que filtre los juegos jijijiji-->
                     <div class=" col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="tarjeta price-item bg-light rounded text-center">
                             <div class="text-center text-dark border-bottom d-flex flex-column justify-content-center p-4" style="width: 100%; height: 100px;">
@@ -56,7 +55,7 @@
                             <!-- <div class="tarjeta d-flex justify-content-center">
                             </div> -->
                             <div class="text-start p-5">
-                                <p><i class="fas fa-check text-success me-1"></i> Plataforma: <?= $juego->getPlataforma() ?></p>
+                                <p><i class="fas fa-check text-success me-1"></i> Plataforma: <?= $juegosRepository->getPlataforma($juego)->getNombre() ?></p>
                                 <p><i class="fas fa-check text-success me-1"></i> Reviews: <?= $juego->getNumRevs() ?></p>
                                 <button class="btn btn-light rounded-pill py-2 px-5" type="button">Ver reviews</button>
                             </div>

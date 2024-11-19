@@ -32,7 +32,7 @@
                         <a href="videojuegos/retro" class="dropdown-item">Retro</a>
                     </div>
                 </div>
-                <a href="/app/controllers/contacto.php" class="nav-item nav-link <?php if(Utils::esOpcionMenuActiva('/contacto.php')) echo 'active'; ?>">Contacta con nosotros</a>
+                <a href="/app/controllers/contacto.php" class="nav-item nav-link <?php if(Utils::esOpcionMenuActiva('/contacto.php')) echo 'active'; ?>">Contacta</a>
             </div>
             <a href="login" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4">Log In</a>
             <a href="registro" class="btn btn-primary rounded-pill text-white py-2 px-4">Sign Up</a>

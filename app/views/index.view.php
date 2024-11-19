@@ -5,7 +5,7 @@
 
 <body>
     <?php require_once __DIR__ . '/navegacion.part.php'; ?>
-    <!-- Hero Header Start -->
+    <!-- Principal -->
     <div class="hero-header overflow-hidden px-5">
         <div class="rotate-img">
             <img src="/public/img/sty-1.png" class="img-fluid w-100" alt="">
@@ -22,9 +22,9 @@
             </div>
         </div>
     </div>
-    <!-- Hero Header End -->
+    <!-- Principal End -->
 
-    <!-- Feature Start -->
+    <!-- Parte central -->
     <div id="topFive" class="container-fluid feature overflow-hidden py-5">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
@@ -60,7 +60,7 @@
                             <div class="d-flex">
                                 <i class="fas fa-newspaper fa-4x text-secondary"></i>
                                 <div class="d-flex flex-column ms-3">
-                                    <h2 class="mb-0 fw-bold">285</h2>
+                                    <h2 class="mb-0 fw-bold"><?=$totalJuegos?></h2>
                                     <small class="text-dark">videojuegos comentados</small>
                                 </div>
                             </div>

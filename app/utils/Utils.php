@@ -41,15 +41,10 @@ class Utils
         if (sizeof($lista) < 1 ) return null;
         else 
         {
-            uasort($lista, 'funcionOrdenar');
+            usort($lista, function($j1, $j2) {
+                return $j2->getNumRevs() - $j1->getNumRevs();
+            });
             return $lista;
         }
-    }
-
-    private function funcionOrdenar(Juego $j1, Juego $j2) {
-        if ($j1->getNumRevs() == $j2->getNumRevs()) {
-            return 0;
-        }
-        return ($j1->getNumRevs() < $j2->getNumRevs()) ? -1 : 1;
     }
 }
