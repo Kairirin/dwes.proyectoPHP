@@ -7,8 +7,8 @@ require_once __DIR__ . '/../repository/JuegosRepository.php';
 $imagenesIndice = ["imagen1.png", "imagen2.png", "imagen3.png"];
 
 try {
-    $config = require_once __DIR__ . '/../config.php';
-    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
+    /* $config = require_once __DIR__ . '/../config.php';
+    App::bind('config', $config); */ // Guardamos la configuración en el contenedor de servicios
     $conexion = App::getConnection();
 
     $juegosRepository = new JuegosRepository();
