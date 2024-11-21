@@ -1,8 +1,17 @@
 <?php
-require_once __DIR__ . '/../../app/exceptions/QueryException.php';
-require_once __DIR__ . '/../../app/exceptions/NotFoundException.php';
-require_once __DIR__ . '/../../app/entity/Juego.php';
-require_once __DIR__ . '/../../app/entity/Plataforma.php';
+namespace proyecto\core\database;
+
+use PDO;
+use PDOException;
+use proyecto\app\entity\IEntity;
+use proyecto\app\entity\Juego;
+use proyecto\app\entity\Plataforma;
+use proyecto\app\repository\JuegosRepository;
+use proyecto\app\repository\PlataformasRepository;
+use proyecto\app\exceptions\NotFoundException;
+use proyecto\app\exceptions\QueryException;
+use proyecto\core\App;
+
 abstract class QueryBuilder
 {
     /**
@@ -68,7 +77,7 @@ abstract class QueryBuilder
     }
     public function filter(string $plat): ?array
     {
-        $sql = "SELECT * FROM $this->tabla WHERE plataforma = \"$plat\"";
+        $sql = "SELECT * FROM $this->tabla WHERE plataforma LIKE \"$plat%\"";
         return $this->executeQuery($sql);
     }
     /**
@@ -83,5 +92,15 @@ abstract class QueryBuilder
             throw new QueryException("No se ha podido ejecutar la query solicitada.");
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
     }
-
+    public function executeTransaction(callable $fnExecuteQuerys)
+    {
+        try {
+            $this->connection->beginTransaction();
+            $fnExecuteQuerys(); // LLamamos a todas las consultas SQL de la transacción
+            $this->connection->commit();
+        } catch (PDOException $pdoException) {
+            $this->connection->rollBack(); // Se deshacen todos los cambios desde beginTransaction()
+            throw new QueryException("No se ha podido realizar la operación.");
+        }
+    }
 }

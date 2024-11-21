@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/IEntity.php';
+namespace proyecto\app\entity;
 
 class Imagen implements IEntity
 {

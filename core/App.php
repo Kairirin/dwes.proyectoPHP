@@ -1,6 +1,11 @@
 <?php
-require_once __DIR__ . '/../app/exceptions/AppException.php';
-require_once __DIR__ . '/database/Connection.php';
+
+namespace proyecto\core;
+
+use proyecto\core\database\Connection;
+use proyecto\app\exceptions\AppException;
+use proyecto\core\database\QueryBuilder;
+
 class App
 {
     /**
@@ -35,5 +40,11 @@ class App
         if (!array_key_exists('connection', static::$container))
             static::$container['connection'] = Connection::make();
         return static::$container['connection'];
+    }
+    public static function getRepository(string $className): QueryBuilder
+    {
+        if (! array_key_exists($className, static::$container))
+            static::$container[$className] = new $className();
+        return static::$container[$className];
     }
 }

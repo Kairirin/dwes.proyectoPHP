@@ -1,6 +1,5 @@
 <?php
-/* namespace proyecto\app\utils; */
-require_once __DIR__ . "/../entity/Juego.php";
+namespace proyecto\app\utils;
 
 class Utils
 {

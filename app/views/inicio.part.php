@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+    
 <head>
         <meta charset="utf-8">
         <title>ComentJuegos</title>
@@ -21,7 +24,7 @@
 
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="/public\css\bootstrap.min.css" rel="stylesheet">
+        <link href="/public/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="/public/css/style.css" rel="stylesheet">

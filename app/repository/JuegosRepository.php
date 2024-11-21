@@ -1,7 +1,9 @@
 <?php
-require_once __DIR__ . '/../entity/Plataforma.php';
-require_once __DIR__ . '/../entity/Juego.php';
-require_once __DIR__ . '/../repository/PlataformasRepository.php';
+namespace proyecto\app\repository;
+
+use proyecto\app\entity\Juego;
+use proyecto\app\entity\Plataforma;
+use proyecto\core\database\QueryBuilder;
 
 class JuegosRepository extends QueryBuilder
 {
@@ -9,7 +11,7 @@ class JuegosRepository extends QueryBuilder
      * @param string $tabla
      * @param string $classEntity
      */
-    public function __construct(string $tabla = 'juegos', string $classEntity = 'Juego')
+    public function __construct(string $tabla = 'juegos', string $classEntity = Juego::class)
     {
         parent::__construct($tabla, $classEntity);
     }

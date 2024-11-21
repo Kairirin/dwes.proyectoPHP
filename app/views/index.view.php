@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once __DIR__ . '/inicio.part.php'; ?>
-<?php require_once __DIR__ . '/../utils/Utils.php'; ?>
-
-<body>
-    <?php require_once __DIR__ . '/navegacion.part.php'; ?>
+<?php use proyecto\app\utils\Utils; ?>
     <!-- Principal -->
     <div class="hero-header overflow-hidden px-5">
         <div class="rotate-img">
@@ -76,8 +70,7 @@
                         </div>
                     </div>
                     <div class="my-4">
-                        <a href="#" class="btn btn-primary rounded-pill py-3 px-5">Sobre nosotros</a>
-                        <!-- Lleva a about-->
+                        <a href="about" class="btn btn-primary rounded-pill py-3 px-5">Sobre nosotros</a>
                     </div>
                 </div>
             </div>
@@ -143,8 +136,3 @@
         </div>
     </div>
     <!-- FAQ End -->
-
-    <?php require_once __DIR__ . '/fin.part.php'; ?>
-</body>
-
-</html>

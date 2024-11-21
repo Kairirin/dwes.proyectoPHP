@@ -1,11 +1,12 @@
 <?php
-$router->get ('', 'app/controllers/index.php');
-$router->get ('index', 'app/controllers/index.php');
-$router->get ('about', 'app/controllers/about.php');
-$router->get ('videojuegos', 'app/controllers/videojuegos.php');
-$router->get ('playstation', 'app/controllers/videojuegos.php');
-$router->get ('xbox', 'app/controllers/videojuegos.php');
-$router->get ('nintendo', 'app/controllers/videojuegos.php');
-$router->get ('retro', 'app/controllers/videojuegos.php');
-$router->post ('videojuegos/nuevo', 'app/controllers/videojuego-nuevo.php');
-$router->get ('contacto', 'app/controllers/contacto.php');
+$router->get ('', 'PagesController@index');
+$router->get ('index', 'PagesController@index');
+$router->get ('about', 'PagesController@about');
+$router->get ('videojuegos', 'VideojuegosController@index');
+$router->get ('playstation', 'VideojuegosController@filter');
+$router->get ('xbox', 'VideojuegosController@filter');
+$router->get ('nintendo', 'VideojuegosController@filter');
+$router->get ('retro', 'VideojuegosController@filter');
+$router->get ('videojuegos/:id', 'VideojuegosController@show');
+$router->post ('videojuegos/nuevo', 'VideojuegosController@nuevoJuego');
+$router->get ('contacto', 'PagesController@contacto');

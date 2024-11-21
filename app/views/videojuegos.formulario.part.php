@@ -10,7 +10,7 @@
 
          <div class="justify-content-center text-center mb-5">
              <!-- Sección que muestra la confirmación del formulario o bien sus errores -->
-             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
+             <?php if( !empty($mensaje) || !empty($errores) ) : ?>
                  <div class="alert alert-<?= empty($errores) ? 'info' : 'danger'; ?> alert-dismissible" role="alert">
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                          <span aria-hidden="true">x</span>
@@ -28,7 +28,7 @@
              <?php endif; ?>
              <!-- Formulario que permite subir una imagen con su descripción -->
              <!-- Hay que indicar OBLIGATORIAMENTE enctype="multipart/form-data" para enviar ficheros al servidor -->
-             <form clas="form-horizontal" action="/videojuegos/nuevo" method="post" enctype="multipart/form-data">
+             <form class="form-horizontal" action="/videojuegos/nuevo" method="post" enctype="multipart/form-data">
                  <div class="form-group">
                      <div class="col-xs-12">
                          <label class="label-control">Imagen</label>
@@ -44,7 +44,8 @@
                              <div class="col-xs-12">
                                  <select class="form-control" name="plataforma">
                                      <?php foreach ($plataformas as $plat) : ?>
-                                         <option value="<?= $plat->getCod() ?>"><?= $plat->getNombre() ?></option>
+                                         <option value="<?= $plat->getCod() ?>"
+                                         <?= ($platSelec == $plat->getCod()) ? 'selected' : '' ?> ><?= $plat->getNombre() ?></option>
                                      <?php endforeach; ?>
                                  </select>
                              </div>

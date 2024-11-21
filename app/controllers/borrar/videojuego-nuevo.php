@@ -1,13 +1,13 @@
 <?php
-require_once __DIR__ . "/../entity/Juego.php";
-require_once __DIR__ . "/../utils/File.php";
-require_once __DIR__ . "/../exceptions/FileException.php";
-require_once __DIR__ . "/../exceptions/QueryException.php";
-require_once __DIR__ . "/../exceptions/PlataformaException.php";
-require_once __DIR__ . "/../../core/database/Connection.php";
-require_once __DIR__ . "/../../core/database/QueryBuilder.php";
-require_once __DIR__ . '/../repository/JuegosRepository.php';
-require_once __DIR__ . '/../repository/PlataformasRepository.php';
+
+use proyecto\app\entity\Juego;
+use proyecto\app\exceptions\AppException;
+use proyecto\app\exceptions\FileException;
+use proyecto\app\exceptions\PlataformaException;
+use proyecto\app\exceptions\QueryException;
+use proyecto\app\repository\JuegosRepository;
+use proyecto\app\utils\File;
+use proyecto\core\App;
 
 $errores = [];
 $titulo = "";
@@ -42,7 +42,9 @@ try {
 
         $nuevoJuego = new Juego($titulo, $imagen->getFileName(), $plataforma); //Aquí va la plataforma
         $juegosRepository->save($nuevoJuego); //No termina de ir
+        App::get('logger')->add("Se ha guardado un juego a revisión: ".$nuevoJuego->getNombre());
         $mensaje = "Se ha guardado la información correctamente"; 
+
     } else {
         $errores = [];
         $titulo = "";

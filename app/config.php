@@ -10,5 +10,15 @@ return [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_PERSISTENT => true
         ]
+    ],
+    'logs' => [
+        'filename' => 'registroJuegos.log',
+        'level' => \Monolog\Logger::WARNING
+    ],
+    'routes' => [
+        'filename' => 'routes.php'
+    ],
+    'project' => [
+        'namespace' => 'proyecto'
     ]
 ];

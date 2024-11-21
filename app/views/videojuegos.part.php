@@ -1,1 +1,0 @@
-<!--Aquí filtrar por plataforma-->
