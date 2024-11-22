@@ -47,7 +47,7 @@
                                 <div class="text-start p-5">
                                     <p><i class="fas fa-check text-success me-1"></i> Plataforma: <?= $juegosRepository->getPlataforma($juego)->getNombre() ?></p>
                                     <p><i class="fas fa-check text-success me-1"></i> Reviews: <?= $juego->getNumRevs() ?></p>
-                                    <a href="videojuegos/<?=$juego->getCod()?>"><button class="btn btn-light rounded-pill py-2 px-5" type="button">Ver reviews</button></a>
+                                    <a href="videojuegos/<?=$juego->getId()?>"><button class="btn btn-light rounded-pill py-2 px-5" type="button">Ver reviews</button></a>
                                 </div>
                             </div>
                         </div>

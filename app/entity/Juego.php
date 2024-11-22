@@ -3,7 +3,7 @@ namespace proyecto\app\entity;
 
 class Juego implements IEntity
 {
-    private $codigo;
+    private $id;
     private $nombre;
     private $imagen;
     private $plataforma;
@@ -13,7 +13,7 @@ class Juego implements IEntity
 
     public function __construct(string $nombre = "", string $imagen = "", string $plataforma = '', int $numReviews = 0)
     {
-        $this->codigo = null;
+        $this->id = null;
         $this->nombre = $nombre;
         $this->imagen = $imagen;
         $this->plataforma = $plataforma;
@@ -39,9 +39,9 @@ class Juego implements IEntity
         $this->numReviews = $numRevs;
         return $this;
     }
-    public function getCod()
+    public function getId()
     {
-        return $this->codigo;
+        return $this->id;
     }
     public function getNombre(): ?string
     { 
@@ -70,7 +70,7 @@ class Juego implements IEntity
     public function toArray(): array
     {
         return [
-            'codigo' => $this->getCod(),
+            'id' => $this->getId(),
             'nombre' => $this->getNombre(),
             'imagen' => $this->getImagen(),
             'plataforma' => $this->getPlataforma(),

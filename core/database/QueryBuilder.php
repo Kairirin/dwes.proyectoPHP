@@ -1,13 +1,10 @@
 <?php
+
 namespace proyecto\core\database;
 
 use PDO;
 use PDOException;
 use proyecto\app\entity\IEntity;
-use proyecto\app\entity\Juego;
-use proyecto\app\entity\Plataforma;
-use proyecto\app\repository\JuegosRepository;
-use proyecto\app\repository\PlataformasRepository;
 use proyecto\app\exceptions\NotFoundException;
 use proyecto\app\exceptions\QueryException;
 use proyecto\core\App;
@@ -26,15 +23,10 @@ abstract class QueryBuilder
         $this->tabla = $tabla;
         $this->classEntity = $classEntity;
     }
-    /**
-     * @param IEntity $entity
-     * @return void
-     * @throws QueryException
-     */
     public function save(IEntity $entity): void
     {
         try {
-            $parametrers = $entity->toArray();
+            $parametrers = $entity->toArray(); //Obtenemos todos los atributos de la clase que implemente la interfaz en modo array
             $sql = sprintf(
                 'INSERT INTO %s (%s) VALUES (%s)',
                 $this->tabla,
@@ -63,16 +55,16 @@ abstract class QueryBuilder
      * @throws NotFoundException
      * @throws QueryException
      */
-    public function find($cod): IEntity
+    public function find($id): IEntity
     {
-        if (gettype($cod) == 'string') {
-            $sql = "SELECT * FROM $this->tabla WHERE codigo = \"$cod\"";
+        if (gettype($id) == 'string') {
+            $sql = "SELECT * FROM $this->tabla WHERE id = \"$id\"";
         } else {
-            $sql = "SELECT * FROM $this->tabla WHERE codigo = $cod";
+            $sql = "SELECT * FROM $this->tabla WHERE id = $id";
         }
         $result = $this->executeQuery($sql);
         if (empty($result))
-            throw new NotFoundException("No se ha encontrado ningún elemento con código $cod.");
+            throw new NotFoundException("No se ha encontrado ningún elemento con código $id.");
         return $result[0];
     }
     public function filter(string $plat): ?array
@@ -80,15 +72,44 @@ abstract class QueryBuilder
         $sql = "SELECT * FROM $this->tabla WHERE plataforma LIKE \"$plat%\"";
         return $this->executeQuery($sql);
     }
+
+    public function findBy(array $filters): array
+    {
+        $sql = "SELECT * FROM $this->tabla " . $this->getFilters($filters);
+        return $this->executeQuery($sql, $filters);
+    }
+    public function getFilters(array $filters)
+    {
+        if (empty($filters)) return '';
+        $strFilters = [];
+        foreach ($filters as $key => $value)
+            $strFilters[] = $key . '=:' . $key;
+        return ' WHERE ' . implode(' and ', $strFilters);
+    }
+    public function findOneBy(array $filters): ?IEntity
+    {
+        $result = $this->findBy($filters);
+        if (count($result) > 0)
+            return $result[0];
+        return null;
+    }
+
     /**
      * @param string $sql
      * @return array
      * @throws QueryException
      */
-    private function executeQuery(string $sql): array
+    /* private function executeQuery(string $sql): array
     {
         $pdoStatement = $this->connection->prepare($sql);
         if ($pdoStatement->execute() === false)
+            throw new QueryException("No se ha podido ejecutar la query solicitada.");
+        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
+    } */
+    private function executeQuery(string $sql, array $parameters = []): array
+    {
+        $pdoStatement = $this->connection->prepare($sql);
+        if ($pdoStatement->execute($parameters) === false)
             throw new QueryException("No se ha podido ejecutar la query solicitada.");
         return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
     }

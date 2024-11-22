@@ -3,17 +3,17 @@ namespace proyecto\app\entity;
 
 class Plataforma implements IEntity
 {
-    private $codigo;
+    private $id;
     private $nombre;
 
-    public function __construct(string $cod = '', string $nombre = '')
+    public function __construct(string $id = '', string $nombre = '')
     {
-        $this->codigo = $cod;
+        $this->id = $id;
         $this->nombre = $nombre;
     }
-    public function setCod($codigo): Plataforma
+    public function setId($id): Plataforma
     {
-        $this->codigo = $codigo;
+        $this->id = $id;
         return $this;
     }
     public function setNombre($nombre): Plataforma
@@ -21,9 +21,9 @@ class Plataforma implements IEntity
         $this->nombre = $nombre;
         return $this;
     }
-    public function getCod()
+    public function getId()
     {
-        return $this->codigo;
+        return $this->id;
     }
     public function getNombre(): ?string
     { 
@@ -36,7 +36,7 @@ class Plataforma implements IEntity
     public function toArray(): array
     {
         return [
-            'codigo' => $this->getCod(),
+            'id' => $this->getId(),
             'nombre' => $this->getNombre()
         ];
     }

@@ -2,7 +2,7 @@
 
 namespace proyecto\app\controllers;
 
-use dwes\core\helpers\FlashMessage;
+use proyecto\core\helpers\FlashMessage;
 use proyecto\app\entity\Juego;
 use proyecto\app\exceptions\AppException;
 use proyecto\app\exceptions\FileException;
@@ -38,17 +38,17 @@ class VideojuegosController
             $juegosRepository = App::getRepository(JuegosRepository::class);
             $videojuegos = $juegosRepository->findAll();
         } catch (FileException $fileException) {
-            FlashMessage::set('errores' , [$fileException->getMessage()]);
+            FlashMessage::set('errores', [$fileException->getMessage()]);
         } catch (QueryException $queryException) {
-            FlashMessage::set('errores' , [$queryException->getMessage()]);
+            FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
-            FlashMessage::set('errores' , [$appException->getMessage()]);
+            FlashMessage::set('errores', [$appException->getMessage()]);
         }
 
         Response::renderView(
             'videojuegos',
             'layout',
-            compact('h1Pagina', 'sobreTitulo', 'errores', 'titulo', 'mensaje', 'plataformas', 'juegosRepository', 'videojuegos')
+            compact('h1Pagina', 'sobreTitulo', 'errores', 'titulo', 'mensaje', 'plataformas', 'juegosRepository', 'videojuegos', 'platSelec')
         );
     }
     public function nuevoJuego()
@@ -58,19 +58,19 @@ class VideojuegosController
 
             $juegosRepository = new JuegosRepository('juegosrevision', 'Juego');
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $titulo = trim(htmlspecialchars($_POST['titulo']));
+            FlashMessage::set('titulo', $titulo);
+            /* $_SESSION['titulo']= $titulo; */
+            $plataforma = trim(htmlspecialchars($_POST['plataforma']));
+            if (empty($plataforma))
+                throw new PlataformaException;
+            FlashMessage::set('platSelec', $plataforma);
+            /* $_SESSION['platSelec'] = $plataforma; */
+            $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
+            $imagen = new File('imagen', $tiposAceptados);
+            $imagen->saveUploadFile(Juego::RUTA_IMAGENES_JUEGOS);
 
-                $titulo = trim(htmlspecialchars($_POST['titulo']));
-                $_SESSION['titulo']= $titulo;
-                $plataforma = trim(htmlspecialchars($_POST['plataforma']));
-                if (empty($plataforma))
-                    throw new PlataformaException;
-                $_SESSION['platSelec'] = $plataforma;
-                $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
-                $imagen = new File('imagen', $tiposAceptados);
-                $imagen->saveUploadFile(Juego::RUTA_IMAGENES_JUEGOS);
-
-                /* $sql = "INSERT INTO juegosrevision (nombre, imagen, plataforma) VALUES (:nombre,:imagen,:plataforma)";
+            /* $sql = "INSERT INTO juegosrevision (nombre, imagen, plataforma) VALUES (:nombre,:imagen,:plataforma)";
         $pdoStatement = $conexion->prepare($sql);
         $parametros = [
             ':nombre' => $titulo,
@@ -82,25 +82,23 @@ class VideojuegosController
         else
             $mensaje = "Se ha guardado la imagen correctamente"; */
 
-                $nuevoJuego = new Juego($titulo, $imagen->getFileName(), $plataforma); //Aquí va la plataforma
-                $juegosRepository->save($nuevoJuego); //No termina de ir
-                App::get('logger')->add("Se ha guardado un juego a revisión: " . $nuevoJuego->getNombre());
-                $_SESSION['mensaje'] = "Se ha guardado la imagen correctamente";
+            $nuevoJuego = new Juego($titulo, $imagen->getFileName(), $plataforma); //Aquí va la plataforma
+            $juegosRepository->save($nuevoJuego); //No termina de ir
 
-                FlashMessage::unset('titulo');
-                FlashMessage::unset('platSelec');
-            } else {
-                $errores = [];
-                $titulo = "";
-            }
+            $mensaje = "Se ha enviado el juego: " . $nuevoJuego->getNombre();
+            App::get('logger')->add($mensaje);
+            FlashMessage::set('mensaje', $mensaje);
+
+            FlashMessage::unset('titulo');
+            FlashMessage::unset('platSelec');
         } catch (PlataformaException) {
             $_SESSION['errores'][] = "No se ha seleccionado una plataforma válida";
         } catch (FileException $fileException) {
-            FlashMessage::set('errores' , [$fileException->getMessage()]);
+            FlashMessage::set('errores', [$fileException->getMessage()]);
         } catch (QueryException $queryException) {
-            FlashMessage::set('errores' , [$queryException->getMessage()]);
+            FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
-            FlashMessage::set('errores' , [$appException->getMessage()]);
+            FlashMessage::set('errores', [$appException->getMessage()]);
         }
 
         App::get('router')->redirect('videojuegos');
@@ -108,10 +106,10 @@ class VideojuegosController
     public function filter()
     {
         $titulo = "";
-        $errores = $_SESSION['errores'] ?? [];
-        $mensaje = $_SESSION['mensaje'] ?? '';
-        unset($_SESSION['errores']);
-        unset($_SESSION['mensaje']);
+        $errores = FlashMessage::get('errores', []);
+        $mensaje = FlashMessage::get('mensaje');
+        $titulo = FlashMessage::get('titulo');
+        $platSelec = FlashMessage::get('platSelec');
         $uri = Request::uri();
         $filtro = "";
 
@@ -143,11 +141,11 @@ class VideojuegosController
             $juegosRepository = App::getRepository(JuegosRepository::class);
             $videojuegos = $juegosRepository->filter($filtro);
         } catch (FileException $fileException) {
-            FlashMessage::set('errores' , [$fileException->getMessage()]);
+            FlashMessage::set('errores', [$fileException->getMessage()]);
         } catch (QueryException $queryException) {
-            FlashMessage::set('errores' , [$queryException->getMessage()]);
+            FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
-            FlashMessage::set('errores' , [$appException->getMessage()]);
+            FlashMessage::set('errores', [$appException->getMessage()]);
         }
 
         Response::renderView(
