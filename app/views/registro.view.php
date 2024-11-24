@@ -34,9 +34,12 @@
                         <input class="form-control" name="password" type="password">
                         <label class="label-control">Repite contraseña</label>
                         <input class="form-control" name="re-password" type="password">
-                        <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
                     </div>
                 </div>
+                <!-- CAPTCHA -->
+                <label class="label-control">Introduce el captcha <br> <img style="border: 1px solid #D3D0D0 " src="/app/utils/captcha.php" id='captcha'></label>
+                <input class="form-control" type="text" name="captcha">
+                <button class="pull-right btn btn-lg sr-button">ENVIAR</button>
             </form>
         </div>
     </div>

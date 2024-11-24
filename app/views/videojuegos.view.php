@@ -61,4 +61,6 @@
     </div>
     <!-- Pricing End -->
 
-    <?php require_once __DIR__ . '/videojuegos.formulario.part.php'; ?>
+    <?php if ($app['user']->getRole() == "ROLE_ADMIN") : ?>
+        <?php require_once __DIR__ . '/videojuegos.formulario.part.php'; ?>
+    <?php endif; ?>

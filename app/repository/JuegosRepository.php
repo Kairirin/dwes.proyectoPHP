@@ -3,6 +3,7 @@ namespace proyecto\app\repository;
 
 use proyecto\app\entity\Juego;
 use proyecto\app\entity\Plataforma;
+use proyecto\core\App;
 use proyecto\core\database\QueryBuilder;
 
 class JuegosRepository extends QueryBuilder
@@ -17,7 +18,7 @@ class JuegosRepository extends QueryBuilder
     }
     public function getPlataforma(Juego $juego): Plataforma
     {
-        $plats = new PlataformasRepository();
+        $plats = App::getRepository(PlataformasRepository::class);
         return $plats->find($juego->getPlataforma());
     }
 }

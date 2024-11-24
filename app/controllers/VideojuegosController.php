@@ -10,6 +10,7 @@ use proyecto\app\exceptions\PlataformaException;
 use proyecto\app\exceptions\QueryException;
 use proyecto\app\repository\JuegosRepository;
 use proyecto\app\repository\PlataformasRepository;
+use proyecto\app\repository\ReviewsRepository;
 use proyecto\app\utils\File;
 use proyecto\core\App;
 use proyecto\core\Request;
@@ -54,36 +55,22 @@ class VideojuegosController
     public function nuevoJuego()
     {
         try {
-            $conexion = App::getConnection();
+            /* $conexion = App::getConnection(); */
 
-            $juegosRepository = new JuegosRepository('juegosrevision', 'Juego');
+            $juegosRepository = App::getRepository(JuegosRepository::class);
 
             $titulo = trim(htmlspecialchars($_POST['titulo']));
             FlashMessage::set('titulo', $titulo);
-            /* $_SESSION['titulo']= $titulo; */
             $plataforma = trim(htmlspecialchars($_POST['plataforma']));
             if (empty($plataforma))
                 throw new PlataformaException;
             FlashMessage::set('platSelec', $plataforma);
-            /* $_SESSION['platSelec'] = $plataforma; */
             $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
             $imagen = new File('imagen', $tiposAceptados);
             $imagen->saveUploadFile(Juego::RUTA_IMAGENES_JUEGOS);
 
-            /* $sql = "INSERT INTO juegosrevision (nombre, imagen, plataforma) VALUES (:nombre,:imagen,:plataforma)";
-        $pdoStatement = $conexion->prepare($sql);
-        $parametros = [
-            ':nombre' => $titulo,
-            ':imagen' => $imagen->getFileName(),
-            ':plataforma' => $plataforma
-        ];
-        if ($pdoStatement->execute($parametros) === false)
-            $errores[] = "No se ha podido guardar la imagen en la base de datos";
-        else
-            $mensaje = "Se ha guardado la imagen correctamente"; */
-
-            $nuevoJuego = new Juego($titulo, $imagen->getFileName(), $plataforma); //Aquí va la plataforma
-            $juegosRepository->save($nuevoJuego); //No termina de ir
+            $nuevoJuego = new Juego($titulo, $imagen->getFileName(), $plataforma); 
+            $juegosRepository->save($nuevoJuego); 
 
             $mensaje = "Se ha enviado el juego: " . $nuevoJuego->getNombre();
             App::get('logger')->add($mensaje);
@@ -158,10 +145,14 @@ class VideojuegosController
     {
         $juegosRepository = App::getRepository(JuegosRepository::class);
         $videojuego = $juegosRepository->find($id);
+
+        $reviewsRepository = App::getRepository((ReviewsRepository::class));
+        $reviews = $reviewsRepository->findAll();
+
         Response::renderView(
             'game-show',
             'layout',
-            compact('juegosRepository', 'videojuego')
+            compact('juegosRepository', 'videojuego', 'reviews', 'reviewsRepository')
         );
     }
 }

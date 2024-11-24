@@ -34,40 +34,24 @@
                 </div>
                 <!--AQUÍ DENTRO TODAS LAS REVIEWS-->
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="bg-light d-flex align-items-center justify-content-center mb-3" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fa fa-map-marker-alt fa-2x text-primary"></i></div>
-                        <div class="ms-4">
-                            <h4>Instituto</h4>
-                            <p class="mb-0">IES San Vicente, San Vicente del Raspeig, Alicante</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="me-4">
-                            <div class="bg-light d-flex align-items-center justify-content-center" style="width: 90px; height: 90px; border-radius: 50px;"><i class="fas fa-share fa-2x text-primary"></i></div>
-                        </div>
-                        <div class="d-flex">
-                            <a class="btn btn-lg-square btn-primary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-lg-square btn-primary rounded-circle mx-2" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-lg-square btn-primary rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-lg-square btn-primary rounded-circle mx-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
+                <?php require_once __DIR__ . '/review.part.view.php' ?>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+        <?php include __DIR__ . '/show-error.part.view.php'; ?>
             <h2 class="display-5 mb-2">Añade tu review</h2>
-            <form class="form-horizontal" action="/comentario/nuevo" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="/videojuegos/<?=$videojuego->getId()?>/nuevo" method="post" enctype="multipart/form-data">
                 <div class="row g-3">
                     <div class="col-lg-12 col-xl-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="titulo" placeholder="Título">
+                            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título">
                             <label for="titulo">Título</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Introduce comentario" id="comentario" style="height: 160px"></textarea>
+                            <textarea class="form-control" name="comentario" placeholder="Introduce comentario" id="comentario" style="height: 160px"></textarea>
                             <label for="comentario">Comentario</label>
                         </div>
                     </div>

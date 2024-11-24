@@ -67,29 +67,37 @@ class AuthController
 
     public function checkRegistro()
     {
-        try {
-            if (!isset($_POST['username']) || empty($_POST['username']))
-                throw new ValidationException('El nombre de usuario no puede estar vacío');
-            FlashMessage::set('username', $_POST['username']);
-            if (!isset($_POST['password']) || empty($_POST['password']))
-                throw new ValidationException('El password de usuario no puede estar vacío');
-            if (!isset($_POST['re-password']) || empty($_POST['re-password']) || $_POST['password'] !== $_POST['re-password'])
-                throw new ValidationException('Los dos password deben ser iguales');
-            $password = Security::encrypt($_POST['password']);
-            $usuario = new Usuario();
-            $usuario->setUsername($_POST['username']);
-            $usuario->setRole('ROLE_USER');
-            $usuario->setPassword($password);
-            App::getRepository(UsuariosRepository::class)->save($usuario);
-            FlashMessage::unset('username');
-            $mensaje = "Se ha creado el usuario: " . $usuario->getUsername();
-            App::get('logger')->add($mensaje);
-            FlashMessage::set('mensaje', $mensaje);
-            App::get('router')->redirect('login');
-        } catch (ValidationException $validationException) {
-            FlashMessage::set('registro-error', [$validationException->getMessage()]);
+        if (isset($_POST['captcha']) && ($_POST['captcha'] != "")) {
+            if ($_SESSION['captchaGenerado'] != $_POST['captcha']) {
+                FlashMessage::set('mensaje', "¡Ha introducido un código de seguridad incorrecto! Inténtelo de nuevo.");
+            } else {
+                try {
+                    if (!isset($_POST['username']) || empty($_POST['username']))
+                        throw new ValidationException('El nombre de usuario no puede estar vacío');
+                    FlashMessage::set('username', $_POST['username']);
+                    if (!isset($_POST['password']) || empty($_POST['password']))
+                        throw new ValidationException('El password de usuario no puede estar vacío');
+                    if (!isset($_POST['re-password']) || empty($_POST['re-password']) || $_POST['password'] !== $_POST['re-password'])
+                        throw new ValidationException('Los dos password deben ser iguales');
+                    $password = Security::encrypt($_POST['password']);
+                    $usuario = new Usuario();
+                    $usuario->setUsername($_POST['username']);
+                    $usuario->setRole('ROLE_USER');
+                    $usuario->setPassword($password);
+                    App::getRepository(UsuariosRepository::class)->save($usuario);
+                    FlashMessage::unset('username');
+                    $mensaje = "Se ha creado el usuario: " . $usuario->getUsername();
+                    App::get('logger')->add($mensaje);
+                    FlashMessage::set('mensaje', $mensaje);
+                    App::get('router')->redirect('login');
+                } catch (ValidationException $validationException) {
+                    FlashMessage::set('registro-error', [$validationException->getMessage()]);
+                    App::get('router')->redirect('registro');
+                }
+            }
+        } else {
+            FlashMessage::set('mensaje', "Introduce el captcha");
             App::get('router')->redirect('registro');
         }
     }
-
 }

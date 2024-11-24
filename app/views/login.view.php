@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div id="login">
+<div id="login" class="container text-center justify-content-center">
     <div class="container text-center">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
             <hr>

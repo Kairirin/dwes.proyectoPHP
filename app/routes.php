@@ -9,7 +9,7 @@ $router->get ('nintendo', 'VideojuegosController@filter');
 $router->get ('retro', 'VideojuegosController@filter');
 $router->get ('videojuegos/:id', 'VideojuegosController@show');
 $router->post ('videojuegos/nuevo', 'VideojuegosController@nuevoJuego', 'ROLE_ADMIN');
-$router->post (':id/nuevo', 'VideojuegosController@nuevaReview', 'ROLE_USER');
+$router->post ('videojuegos/:id/nuevo', 'ReviewController@nueva', 'ROLE_USER');
 $router->get ('contacto', 'PagesController@contacto');
 $router->get ('login', 'AuthController@login');
 $router->post('check-login', 'AuthController@checkLogin');
