@@ -35,6 +35,7 @@ abstract class QueryBuilder
             );
             $statement = $this->connection->prepare($sql);
             $statement->execute($parametrers);
+            echo "execute";
         } catch (PDOException $exception) {
             throw new QueryException("Error al insertar en la base de datos.");
         }
@@ -99,13 +100,6 @@ abstract class QueryBuilder
      * @return array
      * @throws QueryException
      */
-    /* private function executeQuery(string $sql): array
-    {
-        $pdoStatement = $this->connection->prepare($sql);
-        if ($pdoStatement->execute() === false)
-            throw new QueryException("No se ha podido ejecutar la query solicitada.");
-        return $pdoStatement->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, $this->classEntity);
-    } */
     private function executeQuery(string $sql, array $parameters = []): array
     {
         $pdoStatement = $this->connection->prepare($sql);
@@ -122,6 +116,48 @@ abstract class QueryBuilder
         } catch (PDOException $pdoException) {
             $this->connection->rollBack(); // Se deshacen todos los cambios desde beginTransaction()
             throw new QueryException("No se ha podido realizar la operación.");
+        }
+    }
+
+    public function getUpdates(array $parameters)
+    {
+        $updates = '';
+        foreach ($parameters as $key => $value) {
+            if ($key !== 'id')
+                if ($updates !== '')
+                    $updates .= ", ";
+            $updates .= $key . '=:' . $key;
+        }
+        return $updates;
+    }
+    public function update(IEntity $entity): void
+    {
+        try {
+            $parameters = $entity->toArray();
+            $sql = sprintf(
+                'UPDATE %s SET %s WHERE id=:id',
+                $this->tabla,
+                $this->getUpdates($parameters)
+            );
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($parameters);
+        } catch (PDOException $pdoException) {
+            throw new QueryException("No se ha podido actualizar el elemento con id " . $parameters['id']);
+        }
+    }
+
+    public function delete(IEntity $entity): void
+    {
+        try {
+            $parameters = $entity->toArray();
+            $sql = sprintf(
+                'DELETE FROM %s WHERE id=:id',
+                $this->tabla,
+            );
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($parameters);
+        } catch (PDOException $pdoException) {
+            throw new QueryException("No se ha podido actualizar el elemento con id " . $parameters['id']);
         }
     }
 }

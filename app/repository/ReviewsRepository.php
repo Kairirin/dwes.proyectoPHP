@@ -29,4 +29,15 @@ class ReviewsRepository extends QueryBuilder
 
         return $usuarios->find($rv->getAutor());
     }
+
+    public function guarda(Review $rev)
+    {
+        $fnGuardaReview = function () use ($rev) { // Creamos una función anónima que se llama como callable
+            $juego = $this->getVideojuego($rev);
+            $juegosRepository = App::getRepository(JuegosRepository::class);
+            $juegosRepository->nuevaReview($juego);
+            $this->save($rev);
+        };
+        $this->executeTransaction($fnGuardaReview); // Se pasa un callable
+    }
 }

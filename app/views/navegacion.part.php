@@ -42,6 +42,7 @@ use proyecto\app\utils\Utils; ?>
                     <a href="/login" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4 <?php if (Utils::esOpcionMenuActiva('/login')) echo 'active'; ?>">Log In</a>
                     <a href="/registro" class="btn btn-primary rounded-pill text-white py-2 px-4  <?php if (Utils::esOpcionMenuActiva('/registro')) echo 'active'; ?>">Sign Up</a>
                 <?php else : ?>
+                    <a href="/perfil/<?=$app['user']->getId()?>" class="btn btn-primary rounded-pill text-white py-2 px-4  <?php if (Utils::esOpcionMenuActiva('/perfil')) echo 'active'; ?>">Mi perfil</a>
                     <a href="/logout" class="btn btn-primary rounded-pill text-white py-2 px-4  <?php if (Utils::esOpcionMenuActiva('/logout')) echo 'active'; ?>">Log Out</a>
                 <?php endif; ?>
             </div>

@@ -63,7 +63,7 @@
                             <div class="d-flex">
                                 <i class="fas fa-users fa-4x text-secondary"></i>
                                 <div class="d-flex flex-column ms-3">
-                                    <h2 class="mb-0 fw-bold">6560</h2>
+                                    <h2 class="mb-0 fw-bold"><?=$totalUsuarios?></h2>
                                     <small class="text-dark">usuarios</small>
                                 </div>
                             </div>

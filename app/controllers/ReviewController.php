@@ -16,8 +16,6 @@ class ReviewController
     public function nueva($id) 
     {
         try {
-            /* $conexion = App::getConnection(); */
-
             $videojuego = App::getRepository(JuegosRepository::class)->find($id);
             $reviews = App::getRepository(ReviewsRepository::class);
 
@@ -30,7 +28,7 @@ class ReviewController
             $captura->saveUploadFile(Review::RUTA_CAPTURA);
 
             $nuevaReview = new Review($videojuego->getId(), $titulo, $comentario, $captura->getFileName(), App::get('appUser')->getId()); 
-            $reviews->save($nuevaReview); 
+            $reviews->guarda($nuevaReview); 
 
             $mensaje = "El usuario " . App::get('appUser')->getUsername() . " ha mandado una review del juego " . $videojuego->getNombre();
             App::get('logger')->add($mensaje);
@@ -47,5 +45,20 @@ class ReviewController
         }
 
         App::get('router')->redirect('videojuegos/'.$id);
+    }
+
+    public function borrar($id)
+    {
+        try 
+        {
+            echo "hola";
+            $reviews = App::getRepository(ReviewsRepository::class)->delete($id);
+        } catch (QueryException $queryException) {
+            FlashMessage::set('errores', [$queryException->getMessage()]);
+        } catch (AppException $appException) {
+            FlashMessage::set('errores', [$appException->getMessage()]);
+        }
+
+        /* App::get('router')->redirect('videojuegos'); */
     }
 }

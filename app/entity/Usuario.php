@@ -8,6 +8,9 @@ class Usuario implements IEntity
     private $username;
     private $password;
     private $role;
+    private $avatar;
+
+    const RUTA_AVATAR = '/public/img/avatares/';
 
     public function __construct(string $username = "", string $password = "", string $role = "")
     {
@@ -31,6 +34,11 @@ class Usuario implements IEntity
         $this->role = $role;
         return $this;
     }
+    public function setAvatar($avatar): Usuario
+    {
+        $this->avatar = $avatar;
+        return $this;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +55,10 @@ class Usuario implements IEntity
     {
         return $this->role;
     }
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
     public function __toString()
     {
         return $this->getUsername();
@@ -57,7 +69,12 @@ class Usuario implements IEntity
             'id' => $this->getId(),
             'username' => $this->getUsername(),
             'password' => $this->getPassword(),
-            'role' => $this->getRole()
+            'role' => $this->getRole(),
+            'avatar' => $this->getAvatar()
         ];
+    }
+    public function getUrlAvatar(): string
+    {
+        return self::RUTA_AVATAR . $this->getAvatar();
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace proyecto\app\repository;
 
 use proyecto\app\entity\Juego;
@@ -20,5 +21,10 @@ class JuegosRepository extends QueryBuilder
     {
         $plats = App::getRepository(PlataformasRepository::class);
         return $plats->find($juego->getPlataforma());
+    }
+    public function nuevaReview(Juego $juego)
+    {
+        $juego->setNumReviews($juego->getNumRevs() + 1);
+        $this->update($juego);
     }
 }

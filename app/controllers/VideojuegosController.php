@@ -55,7 +55,7 @@ class VideojuegosController
     public function nuevoJuego()
     {
         try {
-            /* $conexion = App::getConnection(); */
+            $conexion = App::getConnection();
 
             $juegosRepository = App::getRepository(JuegosRepository::class);
 
@@ -143,11 +143,15 @@ class VideojuegosController
     }
     public function show($id)
     {
+        $filter = [
+            'videojuego' => $id,
+        ];
+
         $juegosRepository = App::getRepository(JuegosRepository::class);
         $videojuego = $juegosRepository->find($id);
 
-        $reviewsRepository = App::getRepository((ReviewsRepository::class));
-        $reviews = $reviewsRepository->findAll();
+        $reviewsRepository = App::getRepository(ReviewsRepository::class);
+        $reviews = $reviewsRepository->findBy($filter);
 
         Response::renderView(
             'game-show',

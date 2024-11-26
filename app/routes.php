@@ -10,9 +10,12 @@ $router->get ('retro', 'VideojuegosController@filter');
 $router->get ('videojuegos/:id', 'VideojuegosController@show');
 $router->post ('videojuegos/nuevo', 'VideojuegosController@nuevoJuego', 'ROLE_ADMIN');
 $router->post ('videojuegos/:id/nuevo', 'ReviewController@nueva', 'ROLE_USER');
+/* $router->delete ('comentario/:id/borrar', 'ReviewController@borrar', 'ROLE_USER'); // Modificar */
 $router->get ('contacto', 'PagesController@contacto');
 $router->get ('login', 'AuthController@login');
 $router->post('check-login', 'AuthController@checkLogin');
 $router->get ('registro', 'AuthController@registro');
 $router->post('check-registro', 'AuthController@checkRegistro');
+$router->get ('perfil/:id', 'PerfilController@index');
+$router->post ('perfil/:id/modif', 'PerfilController@modif');
 $router->get ('logout', 'AuthController@logout');

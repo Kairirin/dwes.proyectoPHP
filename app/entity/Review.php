@@ -8,7 +8,7 @@ class Review implements IEntity
     private $videojuego;
     private $titulo;
     private $comentario;
-    private $captura;
+    private $ruta_captura;
     private $autor;
 
     const RUTA_CAPTURA = '/public/img/capturasUsuarios/';
@@ -16,10 +16,10 @@ class Review implements IEntity
     public function __construct(int $videojuego = 0, string $titulo = "", string $comentario = "", string $captura = '', int $autor = 0)
     {
         $this->id = null;
-        $this->titulo = $titulo;
         $this->videojuego = $videojuego;
+        $this->titulo = $titulo;
         $this->comentario = $comentario;
-        $this->captura = $captura;
+        $this->ruta_captura = $captura;
         $this->autor = $autor;
     }
 
@@ -40,7 +40,7 @@ class Review implements IEntity
     }
     public function setCaptura($captura): Review
     {
-        $this->captura = $captura;
+        $this->ruta_captura = $captura;
         return $this;
     }
     public function setAutor($autor): Review
@@ -66,9 +66,9 @@ class Review implements IEntity
     }
     public function getCaptura(): string
     {
-        return $this->captura;
+        return $this->ruta_captura;
     }
-    public function getAutor(): int
+    public function getAutor(): ?int
     {
         return $this->autor;
     }
@@ -87,7 +87,7 @@ class Review implements IEntity
             'videojuego' => $this->getVideojuego(),
             'titulo' => $this->getTitulo(),
             'comentario' => $this->getComentario(),
-            'captura' => $this->getCaptura(),
+            'ruta_captura' => $this->getCaptura(),
             'autor' => $this->getAutor()
         ];
     }

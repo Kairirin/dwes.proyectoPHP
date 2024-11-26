@@ -4,6 +4,7 @@ namespace proyecto\app\controllers;
 
 use proyecto\app\exceptions\AppException;
 use proyecto\app\repository\JuegosRepository;
+use proyecto\app\repository\UsuariosRepository;
 use proyecto\app\utils\Utils;
 use proyecto\core\App;
 use proyecto\core\Response;
@@ -24,7 +25,8 @@ class PagesController
 
             $videojuegos = $juegosRepository->findAll();
             $totalJuegos = count($juegosRepository->findAll());
-            //Falta lo mismo pero con el total de usuarios
+            
+            $totalUsuarios = count(App::getRepository(UsuariosRepository::class)->findAll());
 
             $lista = Utils::extraerTopFive($videojuegos);
             //La lista tiene que recuperarla de la base de datos
@@ -35,7 +37,7 @@ class PagesController
         Response::renderView(
             'index',
             'layout',
-            compact ( 'imagenesIndice','videojuegos','totalJuegos','lista', 'juegosRepository')
+            compact ( 'imagenesIndice','videojuegos','totalJuegos','lista', 'juegosRepository', 'totalUsuarios')
             );
     }
     public function about()
