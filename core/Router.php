@@ -13,8 +13,7 @@ class Router
     {
         $this->routes = [
             'GET' => [],
-            'POST' => []/* ,
-            'DELETE' => [] */
+            'POST' => []
         ];
     }
     /**
@@ -45,13 +44,6 @@ class Router
             'role' => $role
         ];
     }
-/*     public function delete(string $uri, string $controller, $role = 'ROLE_ANONYMOUS'): void
-    {
-        $this->routes['DELETE'][$uri] = [
-            'controller' => $controller,
-            'role' => $role
-        ];
-    } */
     public function direct(string $uri, string $method): void
     {
         // Recorremos las rutas y separamos las dos partes: las rutas y sus controladores respectivamente

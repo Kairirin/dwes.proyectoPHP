@@ -2,12 +2,12 @@
 
 namespace proyecto\app\controllers;
 
-use proyecto\app\exceptions\AppException;
-use proyecto\app\repository\JuegosRepository;
 use proyecto\app\repository\UsuariosRepository;
+use proyecto\app\repository\JuegosRepository;
+use proyecto\app\exceptions\AppException;
 use proyecto\app\utils\Utils;
-use proyecto\core\App;
 use proyecto\core\Response;
+use proyecto\core\App;
 
 class PagesController
 {
@@ -29,7 +29,6 @@ class PagesController
             $totalUsuarios = count(App::getRepository(UsuariosRepository::class)->findAll());
 
             $lista = Utils::extraerTopFive($videojuegos);
-            //La lista tiene que recuperarla de la base de datos
         } catch (AppException $appException) {
             $_SESSION['errores'][] = $appException->getMessage();
         }
@@ -44,13 +43,6 @@ class PagesController
     {
         Response::renderView(
             'about',
-            'layout',
-            );
-    }
-    public function contacto()
-    {
-        Response::renderView(
-            'contacto',
             'layout',
             );
     }

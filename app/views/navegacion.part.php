@@ -36,7 +36,6 @@ use proyecto\app\utils\Utils; ?>
                             <a href="/retro" class="dropdown-item">Retro</a>
                         </div>
                     </div>
-                    <a href="/contacto" class="nav-item nav-link <?php if (Utils::esOpcionMenuActiva('/contacto')) echo 'active'; ?>">Contacta</a>
                 </div>
                 <?php if (is_null($app['user'])) : ?>
                     <a href="/login" class="btn btn-light border border-primary rounded-pill text-primary py-2 px-4 me-4 <?php if (Utils::esOpcionMenuActiva('/login')) echo 'active'; ?>">Log In</a>

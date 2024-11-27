@@ -51,14 +51,14 @@ class ReviewController
     {
         try 
         {
-            echo "hola";
-            $reviews = App::getRepository(ReviewsRepository::class)->delete($id);
+            $rev = App::getRepository(ReviewsRepository::class)->find($id);
+            App::getRepository(ReviewsRepository::class)->delete($rev);
         } catch (QueryException $queryException) {
             FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
             FlashMessage::set('errores', [$appException->getMessage()]);
         }
 
-        /* App::get('router')->redirect('videojuegos'); */
+        App::get('router')->redirect('videojuegos');
     }
 }

@@ -152,7 +152,7 @@ abstract class QueryBuilder
             $parameters = $entity->toArray();
             $sql = sprintf(
                 'DELETE FROM %s WHERE id=:id',
-                $this->tabla,
+                $this->tabla
             );
             $statement = $this->connection->prepare($sql);
             $statement->execute($parameters);

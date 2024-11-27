@@ -43,7 +43,7 @@ class Utils
             usort($lista, function($j1, $j2) {
                 return $j2->getNumRevs() - $j1->getNumRevs();
             });
-            return $lista;
+            return array_slice($lista, 0, 5);
         }
     }
 }

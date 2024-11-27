@@ -138,7 +138,7 @@ class VideojuegosController
         Response::renderView(
             'videojuegos',
             'layout',
-            compact('h1Pagina', 'sobreTitulo', 'errores', 'titulo', 'mensaje', 'plataformas', 'juegosRepository', 'videojuegos')
+            compact('h1Pagina', 'sobreTitulo', 'errores', 'titulo', 'mensaje', 'plataformas', 'juegosRepository', 'videojuegos', 'platSelec')
         );
     }
     public function show($id)
